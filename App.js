@@ -8,7 +8,11 @@ const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <FirstScreen/>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="First" component={FirstScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
