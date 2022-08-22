@@ -1,13 +1,18 @@
-import { Text, View } from 'react-native'
+import { Text, View, Pressable } from 'react-native'
 import React from 'react'
 import { styles } from '../theme/style'
 
 
 const RenderItem = ({item}) => {
+
+    const openApp = () => { 
+        console.log("openApp")
+     }
+
   return (
-    <View style={styles.content}>
+    <Pressable onPress={openApp} style={styles.content}>
       <Text style={styles.titre}>{item.titre}</Text>
-    </View>
+    </Pressable>
   )
 }
 
