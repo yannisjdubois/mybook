@@ -27,7 +27,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 
-import First from "./AllApps/First"
+import First from "./AllApps/First/Index"
 
 
 const App: () => Node = () => {
