@@ -6,7 +6,7 @@ import { styles } from '../theme/style'
 const RenderItem = ({item}) => {
 
     const openApp = () => { 
-        console.log("openApp")
+        console.log("openApp", item)
      }
 
   return (
