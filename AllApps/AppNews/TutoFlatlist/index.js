@@ -14,7 +14,7 @@ const Tuto = () => {
         setNombres(tempNombres)
 
       }
-      
+
   return (
     <FlatList
     ListHeaderComponent={
@@ -27,6 +27,10 @@ const Tuto = () => {
             <Text>{item}</Text>
         }
         keyExtractor = {item=>item}
+
+        // paramètre de l'Infinity Scroll
+        onEndReached = {addNombres}
+        onEndReachedThreshold = {0.2}
     />
   )
 }
