@@ -5,6 +5,7 @@ import ItemNews from './components/ItemNews'
 import { useState } from 'react'
 
 const News = () => {
+  // Controle de l'état de la FlatList
   const [getNews, setNews] = useState([]) ;
 
   const initNews = () =>{
