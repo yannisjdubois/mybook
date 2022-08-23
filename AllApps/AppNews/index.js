@@ -21,7 +21,7 @@ const News = () => {
 
               />
             }
-            ListHeaderComponent={
+            ListEmptyComponent={
               <Text>Pas de news</Text>
             }
             data={getNews}
