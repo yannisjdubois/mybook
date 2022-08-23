@@ -1,4 +1,4 @@
-export const news = [
+export const dataNews = [
     {
         id : 1,
         image : require("../AllApps/AppNews/images/business-school-alumni.png"),
