@@ -16,11 +16,9 @@ const ItemNews = ({item}) => {
 
         <View style={styles.viewTxt}>
 
-        <Text>
-            {item.image}
-            {item.titre}
-            {item.description}
-       </Text>
+            <Text>{item.titre}</Text>
+            <Text></Text>
+            <Text>{item.description}</Text>
 
         </View>
 
