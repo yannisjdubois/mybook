@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import FirstScreen from './AllApps/First/Index';
 import Insta from './AllApps/Insta';
 import News from './AllApps/AppNews';
+import Tuto from './AllApps/AppNews/TutoFlatList';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,7 @@ const App = () => {
         <Stack.Screen name="First" component={FirstScreen} />
         <Stack.Screen name="AppInsta" component={Insta} />
         <Stack.Screen name="AppNews" component={News} />
+        <Stack.Screen name="AppTuto" component={Tuto} />
       </Stack.Navigator>
     </NavigationContainer>
   )

@@ -13,7 +13,7 @@ export const dataApp = [
 
     {
         id : 3,
-        titre : "Chemin Vérité Vie",
-        nomApp : "CheminVeriteVie"
+        titre : "Tuto",
+        nomApp : "AppTuto"
     },
 ] ;
