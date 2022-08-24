@@ -9,15 +9,31 @@ const News = () => {
   // Controle de l'état de la FlatList
   const [getNews, setNews] = useState([]) ;
 
-  const initNews = () =>{
-    setNews(dataNews);
+  // Gestion de la pagination
+  const [getPage, setPage] = useState(1) ;
+
+  const initNews = async () =>{
+
+    // Chargement de mon API
+    const articles = await apiNews(1);
+
+    setNews(articles);
+
+    console.log(articles)
+  }
+
+  const nextPage = async () =>{
+    //Load more
+
+    setPage( getPage + 1 ) ;
+
+    console.log('page : ' , getPage) ;
   }
 
   useEffect(()=>{
 
-    // Chargement de mon API
-
-    apiNews() ;
+    
+    initNews() ;
 
   },[])
 

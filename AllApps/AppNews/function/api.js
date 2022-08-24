@@ -14,12 +14,14 @@ export const apiNews = async () => {
         from : '2022-08-24',
         sortBy : 'popularity',
         apiKey : apiKey,
-        page : 1,
+        page : page,
         pageSize : 10
     }
 
-    const response = await axios.get()
+    const {data} = await axios.get(urlApi,{params:params})
 
-    console.log('api News')
+    // console.log('api News', data.articles)
+
+    return data.articles
 
 }

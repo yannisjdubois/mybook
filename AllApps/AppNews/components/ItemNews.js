@@ -9,14 +9,14 @@ const ItemNews = ({item}) => {
 
         <Image
             style={styles.image}
-            source={item.image}
+            source={{uri:item.urlToImage}}
         />
             
         </View>
 
         <View style={styles.viewTxt}>
 
-            <Text>{item.titre}</Text>
+            <Text>{item.title}</Text>
             <Text></Text>
             <Text>{item.description}</Text>
 
