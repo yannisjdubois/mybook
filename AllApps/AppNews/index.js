@@ -24,7 +24,7 @@ const News = () => {
     setTimeout(() => {
                       setNews(articles)
                       setWaiting(false) ;
-                      }, 2000) ;
+                      }, 5000) ;
 
     
 
@@ -66,7 +66,7 @@ const News = () => {
             ListEmptyComponent={
               <RenderEmptyComponent waiting = {waiting} />
             }
-            ListFooterComponent={<ActivityIndicator/>}
+            ListFooterComponent={(waiting && getNews.length > 0 ) && <ActivityIndicator/>}
         />
     </View>
   )
