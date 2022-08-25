@@ -22,7 +22,7 @@ const News = () => {
     // Déclenche AcitivityIndicator
     setWaiting(true) ;
     setTimeout(() => {
-                      setNews(articles)
+                      setNews([...getNews, ...articles]) ;
                       setWaiting(false) ;
                       }, 5000) ;
 
