@@ -4,6 +4,7 @@ import React from 'react'
 import ItemNews from './components/ItemNews'
 import { useState, useEffect } from 'react'
 import {apiNews } from './function/api'
+import RenderEmptyComponent from '../First/components/RenderEmptyComponent'
 
 const News = () => {
   // Controle de l'état de la FlatList
@@ -18,9 +19,12 @@ const News = () => {
     // Chargement de mon API
     const articles = await apiNews(getPage);
 
+    // Déclenche AcitivityIndicator
+    setWaiting(true) ;
     setTimeout(() => {
                       setNews(articles)
-                      }, 5000) ;
+                      setWaiting(false) ;
+                      }, 2000) ;
 
     
 
@@ -38,7 +42,7 @@ const News = () => {
 
   useEffect(()=>{
 
-    
+    setWaiting(true) ;
     loadNews() ;
 
   },[])
@@ -48,19 +52,19 @@ const News = () => {
         <FlatList
             ListHeaderComponent={
               <Button
-                onPress={initNews}
-                title="Init News"
+                onPress={nextPage}
+                title="Next"
 
               />
             }
             ListEmptyComponent={
-              <Text>Pas de news</Text>
+              <RenderEmptyComponent waiting = {waiting} />
             }
             data={getNews}
             renderItem = { ({item}) =>
             <ItemNews item={item}/>
           }
-            keyExtractor = {item=>item.id}
+            keyExtractor = {(item, index) => 'key'+index}
         />
     </View>
   )
