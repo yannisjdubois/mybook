@@ -1,6 +1,6 @@
-import { View, Text, FlatList, Image, Button } from 'react-native'
+import { Text, FlatList, Image, Button, ActivityIndicator } from 'react-native'
 import React from 'react'
-import { dataNews } from '../../Datas/news'
+// import { dataNews } from '../../Datas/news'
 import ItemNews from './components/ItemNews'
 import { useState, useEffect } from 'react'
 import {apiNews } from './function/api'
@@ -8,16 +8,21 @@ import {apiNews } from './function/api'
 const News = () => {
   // Controle de l'état de la FlatList
   const [getNews, setNews] = useState([]) ;
+  const [waiting, setWaiting] = useState(false) ;
 
   // Gestion de la pagination
   const [getPage, setPage] = useState(1) ;
 
-  const initNews = async () =>{
+  const loadNews = async () =>{
 
     // Chargement de mon API
-    const articles = await apiNews(1);
+    const articles = await apiNews(getPage);
 
-    setNews(articles);
+    setTimeout(() => {
+                      setNews(articles)
+                      }, 5000) ;
+
+    
 
     console.log(articles)
   }
@@ -26,14 +31,15 @@ const News = () => {
     //Load more
 
     setPage( getPage + 1 ) ;
+    loadNews() ;
 
-    console.log('page : ' , getPage) ;
+    // console.log('page : ' , getPage) ;
   }
 
   useEffect(()=>{
 
     
-    initNews() ;
+    loadNews() ;
 
   },[])
 
