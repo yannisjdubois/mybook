@@ -9,7 +9,7 @@ const ItemNews = ({item}) => {
 
         <Image
             style={styles.image}
-            source={{uri:item.urlToImage}}
+            source={{uri:item.image}}
         />
             
         </View>

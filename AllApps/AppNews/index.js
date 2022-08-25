@@ -1,10 +1,10 @@
-import { Text, FlatList, Image, Button, ActivityIndicator } from 'react-native'
+import { Text, FlatList, Image, Button, ActivityIndicator, View } from 'react-native'
 import React from 'react'
 // import { dataNews } from '../../Datas/news'
 import ItemNews from './components/ItemNews'
 import { useState, useEffect } from 'react'
-import {apiNews } from './function/api'
-import RenderEmptyComponent from '../First/components/RenderEmptyComponent'
+import { apiNews } from './function/api'
+import RenderEmptyComponent from './components/RenderEmptyComponent'
 
 const News = () => {
   // Controle de l'état de la FlatList
@@ -50,6 +50,12 @@ const News = () => {
   return (
     <View>
         <FlatList
+            data={getNews}
+            renderItem = { ({item}) =>
+            <ItemNews item={item}/>
+          }
+            keyExtractor = {(item, index) => 'key'+index}
+
             ListHeaderComponent={
               <Button
                 onPress={nextPage}
@@ -60,11 +66,7 @@ const News = () => {
             ListEmptyComponent={
               <RenderEmptyComponent waiting = {waiting} />
             }
-            data={getNews}
-            renderItem = { ({item}) =>
-            <ItemNews item={item}/>
-          }
-            keyExtractor = {(item, index) => 'key'+index}
+            ListFooterComponent={<ActivityIndicator/>}
         />
     </View>
   )
