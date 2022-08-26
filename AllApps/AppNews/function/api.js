@@ -14,7 +14,7 @@ const apiKey = "941d04ff3f31176eba635e694f4082c5" ;
 // const apiKey = "0c7865eb00d041099e3c7d2e1f9b23e8" ;
 
 
-export const apiNews = async () => {
+export const apiNews = async (page) => {
 
     // Paramètre d'appel de mon API
     const params = {

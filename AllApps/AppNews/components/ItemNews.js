@@ -1,10 +1,17 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { styles } from './theme/style'
+import { useNavigation } from '@react-navigation/native';
 
 const ItemNews = ({item}) => {
+
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.content}>
+    <TouchableOpacity
+        onPress={()=>navigation.navigate("DetailNewScreen", {item})}
+        style={styles.content}>
+
         <View style={styles.viewImg}>
 
         <Image
@@ -18,11 +25,11 @@ const ItemNews = ({item}) => {
 
             <Text>{item.title}</Text>
             <Text></Text>
-            <Text>{item.description}</Text>
+            <Text style={styles.viewTxtDescription}>{item.description}</Text>
 
         </View>
 
-    </View>
+    </TouchableOpacity>
   )
 }
 
